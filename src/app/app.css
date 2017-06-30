@@ -1,0 +1,66 @@
+/*
+*   Keep in mind in a real app I would use sass or less and create variables
+*   for these colors that are repeating (i.e #dddddd). For the sake of this
+*   project I am using plain css
+*
+*   Example of using sass variables
+*   $primary-color: #e9573f;
+*/
+
+body {
+    background: #141c22;
+}
+
+a {
+    color: black;
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: #e9573f;
+    text-decoration: none;
+}
+
+.results:last-child {
+    border-bottom: none;
+}
+
+/* bootstrap overrides */
+.jumbotron {
+    background-color: #e9573f;
+    border-radius: 0;
+}
+
+.input-bar {
+    box-shadow: 0 0 1px 5px #d53318;
+}
+
+.navbar-inverse {
+    background-color: #e9573f;
+}
+
+
+
+/* utility classes */
+.bl-1 {
+    border-left: 1px solid #dddddd;
+}
+
+.bb-1 {
+    border-bottom: 1px solid #dddddd;
+}
+
+.lp-6 {
+    padding-left: 60px
+}
+
+
+/*============================
+    Typography
+============================*/
+h1,
+h2,
+.display-3,
+.display-4 {
+    font-family: Roboto
+}

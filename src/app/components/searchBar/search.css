@@ -1,0 +1,39 @@
+/*
+*   Keep in mind in a real app I would use sass and I would also
+*   probably use smarter, more modular names instead of names
+*   like "target-text"
+*/
+
+.results-container {
+    background: #ffffff;
+    border-top: 7px solid #000000;
+}
+
+.results {
+    padding: 50px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.target-text {
+    font-size: 0.45em;
+}
+
+.favorite {
+    position: relative;
+    top: 1px;
+    margin-left: 10px;
+ }
+
+ .favorite.active {
+    color: #e9573f !important;
+ }
+
+ a.favorite {
+    color: #cccccc;
+    text-decoration: none;
+ }
+
+ .version-number {
+    margin-left: 12px;
+    color: #aaaaaa;
+ }
