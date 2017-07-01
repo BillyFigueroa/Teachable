@@ -18,7 +18,7 @@ class SearchBar {
 export default angular
     .module('app.search', [])
     .component('searchBar', {
-        controller   : SearchBar,
+        controller: SearchBar,
         template
     })
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {

@@ -1,5 +1,6 @@
 import angular from 'angular';
 
+import template from './search-results.html';
 import './search.css'
 
 class SearchResults {
@@ -46,43 +47,8 @@ class SearchResults {
 export default angular
     .module('app.searchResults', [])
     .component('searchResults', {
-        controller   : SearchResults,
-        template     : `
-            <div class="container-fluid results-container">
-                <div class="row justify-content-sm-center py-3">
-                    <div class="col-10">
-                        <p class="display-4 py-3">
-                            Search <span class="text-muted font-italic target-text">for {{ $ctrl.queryTarget }}<span>
-                        </p>
-
-                        <hr />
-
-                        <div data-ng-if="$ctrl.foundGems.length > 0" class="results" ng-repeat="gem in $ctrl.foundGems">
-                            <div class="row">
-                                <div class="col-10">
-                                    <h4>
-                                        <a ui-sref="gem({ gem: gem.name})">{{ gem.name }}</a>
-                                        <small class="text-muted font-italic version-number">{{ gem.version }}</small>
-                                        <a class="favorite" ng-class="{active : gem.favorite}" ng-click="$ctrl.toggleFavorite(gem, $event)" href="" title="Add to favorites">&#9733;</a>
-                                    </h4>
-                                    {{ gem.info }}
-                                </div>
-                                <div class="col-2">
-                                        <h4 class="text-right">
-                                            {{ gem.downloads | number }}
-                                        </h4>
-                                        <p class="text-uppercase text-right">
-                                            <small>downloads</small>
-                                        </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div data-ng-if="$ctrl.foundGems.length == 0" class="results text-center lead">No Results found for '{{ $ctrl.queryTarget }}'</div>
-                    </div>
-                </div>
-            </div>
-        `
+        controller: SearchResults,
+        template
     })
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         'ngInject';
