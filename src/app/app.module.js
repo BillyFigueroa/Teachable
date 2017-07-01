@@ -25,30 +25,6 @@ export default angular
             <navigation></navigation>
             <div ui-view></div>
         `
-    })
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-        'ngInject';
-
-        $stateProvider
-            .state('home', {
-                url       : '/',
-                component : 'searchBar',
-            })
-            .state('results', {
-                url       : '/search?query',
-                component : 'searchResults',
-            })
-            .state('gem', {
-                url       : '/gem/{gem}',
-                component : 'searchResultsItem',
-            })
-            .state('favorites', {
-                url       : '/favorites',
-                component : 'favorite',
-            })
-        $urlRouterProvider.otherwise('/');
-
-        $locationProvider.html5Mode(true);
     }).name;
 
 angular.bootstrap(document, [MODULE_NAME]);

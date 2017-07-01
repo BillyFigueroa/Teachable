@@ -88,4 +88,16 @@ export default angular
                 </div>
             </div>
         `
+    })
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        'ngInject';
+
+        $stateProvider
+            .state('gem', {
+                url       : '/gem/{gem}',
+                component : 'searchResultsItem',
+            })
+        $urlRouterProvider.otherwise('/');
+
+        $locationProvider.html5Mode(true);
     }).name;

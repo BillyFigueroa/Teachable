@@ -20,4 +20,16 @@ export default angular
     .component('searchBar', {
         controller   : SearchBar,
         template
+    })
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        'ngInject';
+
+        $stateProvider
+            .state('home', {
+                url       : '/',
+                component : 'searchBar',
+            })
+        $urlRouterProvider.otherwise('/');
+
+        $locationProvider.html5Mode(true);
     }).name;

@@ -83,4 +83,16 @@ export default angular
                 </div>
             </div>
         `
+    })
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        'ngInject';
+
+        $stateProvider
+            .state('results', {
+                url       : '/search?query',
+                component : 'searchResults',
+            })
+        $urlRouterProvider.otherwise('/');
+
+        $locationProvider.html5Mode(true);
     }).name;
