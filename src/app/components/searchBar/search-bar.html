@@ -10,13 +10,13 @@
                     type="text"
                     class="form-control font-italic"
                     placeholder="Search Gems..."
-                    data-ng-model="search.searchWord"
+                    data-ng-model="$ctrl.searchWord"
                 />
                 <span class="input-group-btn">
                     <button
                         class="btn btn-secondary"
                         type="button"
-                        data-ng-click="search.findGems($event)"
+                        data-ng-click="$ctrl.findGems($event)"
                     >
                     Search
                     </button>

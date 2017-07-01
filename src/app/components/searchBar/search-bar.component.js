@@ -17,6 +17,5 @@ export default angular
     .module('app.search', [])
     .component('searchBar', {
         controller   : SearchBar,
-        controllerAs : 'search',
         template
     }).name;

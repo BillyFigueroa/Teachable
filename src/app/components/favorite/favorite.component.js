@@ -23,7 +23,6 @@ export default angular
     .module('app.favorite', [])
     .component('favorite', {
         controller   : Favorite,
-        controllerAs : 'favorite',
         template     : `
 
             <div class="container-fluid results-container">
@@ -33,7 +32,7 @@ export default angular
                             Favorites
                         </p>
                         <hr />
-                        <div class="results" ng-repeat="gem in favorite.favorites">
+                        <div class="results" ng-repeat="gem in $ctrl.favorites">
                             <div class="row">
                                 <div class="col-10">
                                     <h4>
