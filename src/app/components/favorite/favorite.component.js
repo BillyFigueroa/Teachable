@@ -4,6 +4,8 @@ import SearchResults from '../searchBar/search-results.component.js';
 
 class Favorite {
     constructor($http, $stateParams) {
+        'ngInject';
+
         // Dependencies
         this.$http  = $http;
 

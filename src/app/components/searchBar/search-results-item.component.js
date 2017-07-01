@@ -4,6 +4,8 @@ import './search.css'
 
 class SearchResultsItem {
     constructor($http, $stateParams) {
+        'ngInject';
+
         // Dependencies
         this.$http  = $http;
 

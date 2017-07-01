@@ -4,6 +4,8 @@ import template from './search-bar.html';
 
 class SearchBar {
     constructor($state) {
+        'ngInject';
+
         this.$state     = $state;
         this.searchWord = null;
     }
