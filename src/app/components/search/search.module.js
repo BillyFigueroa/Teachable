@@ -3,14 +3,16 @@ import angular from 'angular';
 import { SearchComponent }            from './search.component';
 import { SearchResultsComponent }     from './search-results/search-results.component';
 import { SearchResultsItemComponent } from './search-results/search-results-item.component';
+import { SearchService }              from './search.service.js';
 
 import './search.css';
 
 export const SearchModule = angular
     .module('search', [])
     .component('search', SearchComponent)
-    .component('search.results', SearchResultsComponent)
-    .component('search.results.item', SearchResultsItemComponent)
+    .component('searchResults', SearchResultsComponent)
+    .component('searchResultsItem', SearchResultsItemComponent)
+    .service('SearchService', SearchService)
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         'ngInject';
 
@@ -21,11 +23,19 @@ export const SearchModule = angular
             })
             .state('results', {
                 url       : '/search?query',
-                component : 'search.results',
+                component : 'searchResults',
+                resolve: {
+                    gems: function($stateParams, SearchService) {
+                        var { query } = $stateParams;
+
+                        return SearchService.getGemDependencies(query)
+                            .then(response => response);
+                    }
+                }
             })
             .state('gem', {
                 url       : '/gem/{gem}',
-                component : 'search.results.item',
+                component : 'searchResultsItem',
             })
         $urlRouterProvider.otherwise('/');
 

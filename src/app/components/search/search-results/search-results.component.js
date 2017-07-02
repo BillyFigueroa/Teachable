@@ -1,34 +1,25 @@
 import template from './search-results.html';
 
 export const SearchResultsComponent = {
+    bindings: {
+        gems: '<'
+    },
     template,
     controller: class SearchResults {
 
-        constructor($http, $stateParams) {
+        constructor($stateParams, SearchService) {
             'ngInject';
 
-            // Dependencies
-            this.$http  = $http;
+            this.SearchService = SearchService;
 
-            // Defaults
-            this.foundGems = {};
+            // Grab search parameter to use for Search header
+            this.queryTarget = $stateParams.query;
+        }
 
-            var { hash, query } = $stateParams;
-            this.queryTarget = query;
-
-            // This should go in a Service or a Factory
-            this.$http.get(`https://rubygems.org/api/v1/search.json?&query=${query}`).then((response) => {
-                // map through all the favorites and if it has a localStorage entry add a favorite key
-                this.foundGems = response.data.map(function(gem, idx) {
-                    var name = gem.name;
-                    if (localStorage.getItem(name)) {
-                        gem.favorite = true;
-
-                    }
-
-                    return gem;
-                });
-            });
+        $onInit(SearchService) {
+            // map through all the favorites and if it has a localStorage entry add a favorite key
+            this.gems = this.SearchService
+                                .addFavoritesFromLocalStorage(this.gems);
         }
 
         toggleFavorite(gem, ev) {

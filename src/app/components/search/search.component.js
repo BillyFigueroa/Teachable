@@ -7,7 +7,10 @@ export const SearchComponent = {
         constructor($state) {
             'ngInject';
 
-            this.$state     = $state;
+            this.$state = $state;
+        }
+
+        $onInit() {
             this.searchWord = null;
         }
 

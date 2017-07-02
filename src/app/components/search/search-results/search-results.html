@@ -7,7 +7,7 @@
 
             <hr />
 
-            <div data-ng-if="$ctrl.foundGems.length > 0" class="results" ng-repeat="gem in $ctrl.foundGems">
+            <div data-ng-if="$ctrl.gems.length > 0" class="results" ng-repeat="gem in $ctrl.gems">
                 <div class="row">
                     <div class="col-10">
                         <h4>
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div data-ng-if="$ctrl.foundGems.length == 0" class="results text-center lead">No Results found for '{{ $ctrl.queryTarget }}'</div>
+            <div data-ng-if="$ctrl.gems.length == 0" class="results text-center lead">No Results found for '{{ $ctrl.queryTarget }}'</div>
         </div>
     </div>
 </div>
