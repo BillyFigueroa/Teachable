@@ -2,10 +2,11 @@ import angular  from 'angular';
 import uiRouter from 'angular-ui-router';
 
 import './app.css';
+import './components/search/search.css';
 
 import SearchBar         from './components/search/search.component';
-import SearchResults     from './components/search/search-results.component';
-import SearchResultsItem from './components/search/search-results-item.component';
+import SearchResults     from './components/search/search-results/search-results.component';
+import SearchResultsItem from './components/search/search-results/search-results-item.component';
 import Favorite          from './components/favorite/favorite.component';
 import Navigation        from './components/common/header/navigation.module';
 

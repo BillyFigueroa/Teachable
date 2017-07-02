@@ -1,7 +1,6 @@
 import angular from 'angular';
 
 import template from './search-results-item.html';
-import './search.css'
 
 export default angular
     .module('app.searchResultsItem', [])

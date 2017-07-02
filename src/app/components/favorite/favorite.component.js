@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 import template      from './favorite.html';
-import SearchResults from '../search/search-results.component.js';
+import SearchResults from '../search/search-results/search-results.component';
 
 export default angular
     .module('app.favorite', [])
