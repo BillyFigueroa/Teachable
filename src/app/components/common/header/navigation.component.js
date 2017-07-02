@@ -1,4 +1,3 @@
-
 export const Navigation = {
     template: `
         <nav class="navbar navbar-toggleable-md navbar-inverse">

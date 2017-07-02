@@ -2,20 +2,19 @@ import angular  from 'angular';
 import uiRouter from 'angular-ui-router';
 
 import './app.css';
-import './components/search/search.css';
 
-import { SearchModule }   from './components/search/search.module';
-import { FavoriteModule } from './components/favorite/favorite.module';
-import Navigation        from './components/common/header/navigation.module';
+import { SearchModule }     from './components/search/search.module';
+import { FavoriteModule }   from './components/favorite/favorite.module';
+import { NavigationModule } from './components/common/header/navigation.module';
 
 const MODULE_NAME = 'teachable';
 
 export default angular
     .module(MODULE_NAME, [
         uiRouter,
-        Navigation,
         SearchModule,
-        FavoriteModule
+        FavoriteModule,
+        NavigationModule
     ])
     .component(MODULE_NAME, {
         template: `

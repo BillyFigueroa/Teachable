@@ -2,7 +2,7 @@ import angular  from 'angular';
 
 import { Navigation } from './navigation.component';
 
-export default angular
+export const NavigationModule = angular
     .module('app.navigation', [])
     .component('navigation', Navigation)
     .name;
