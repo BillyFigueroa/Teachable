@@ -1,39 +1,24 @@
 import angular from 'angular';
 
-import template      from './favorite.html';
-import SearchResults from '../search/search-results/search-results.component';
+import template from './favorite.html';
 
-export default angular
-    .module('app.favorite', [])
-    .component('favorite', {
-        controller: class Favorite {
+export const FavoriteComponent = {
+    template,
+    controller: class Favorite {
 
-            constructor() {
-                'ngInject';
+        constructor() {
+            'ngInject';
 
-                // Defaults
-                this.favorites = [];
-                this.getFavoritesFromLocal();
+            // Defaults
+            this.favorites = [];
+            this.getFavoritesFromLocal();
+        }
+
+        getFavoritesFromLocal() {
+           for (var item in localStorage) {
+                    this.favorites.push(JSON.parse(localStorage[item]));
             }
+        }
 
-            getFavoritesFromLocal() {
-               for (var item in localStorage) {
-                        this.favorites.push(JSON.parse(localStorage[item]));
-                }
-            }
-
-        },
-        template
-    })
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-        'ngInject';
-
-        $stateProvider
-            .state('favorites', {
-                url       : '/favorites',
-                component : 'favorite',
-            })
-        $urlRouterProvider.otherwise('/');
-
-        $locationProvider.html5Mode(true);
-    }).name;
+    }
+};

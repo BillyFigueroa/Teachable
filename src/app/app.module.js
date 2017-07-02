@@ -4,10 +4,8 @@ import uiRouter from 'angular-ui-router';
 import './app.css';
 import './components/search/search.css';
 
-import { SearchModule }  from './components/search/search.module';
-import SearchResults     from './components/search/search-results/search-results.component';
-import SearchResultsItem from './components/search/search-results/search-results-item.component';
-import Favorite          from './components/favorite/favorite.component';
+import { SearchModule }   from './components/search/search.module';
+import { FavoriteModule } from './components/favorite/favorite.module';
 import Navigation        from './components/common/header/navigation.module';
 
 const MODULE_NAME = 'teachable';
@@ -17,13 +15,14 @@ export default angular
         uiRouter,
         Navigation,
         SearchModule,
-        Favorite,
+        FavoriteModule
     ])
     .component(MODULE_NAME, {
         template: `
             <navigation></navigation>
             <div ui-view></div>
         `
-    }).name;
+    })
+    .name;
 
 angular.bootstrap(document, [MODULE_NAME]);
