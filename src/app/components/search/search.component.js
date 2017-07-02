@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import template from './search-bar.html';
+import template from './search.html';
 
 export default angular
     .module('app.search', [])

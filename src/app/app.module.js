@@ -3,7 +3,7 @@ import uiRouter from 'angular-ui-router';
 
 import './app.css';
 
-import SearchBar         from './components/search/search-bar.component';
+import SearchBar         from './components/search/search.component';
 import SearchResults     from './components/search/search-results.component';
 import SearchResultsItem from './components/search/search-results-item.component';
 import Favorite          from './components/favorite/favorite.component';
