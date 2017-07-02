@@ -3,9 +3,9 @@ import uiRouter from 'angular-ui-router';
 
 import './app.css';
 
-import SearchBar         from './components/searchBar/search-bar.component';
-import SearchResults     from './components/searchBar/search-results.component';
-import SearchResultsItem from './components/searchBar/search-results-item.component';
+import SearchBar         from './components/search/search-bar.component';
+import SearchResults     from './components/search/search-results.component';
+import SearchResultsItem from './components/search/search-results-item.component';
 import Favorite          from './components/favorite/favorite.component';
 import Navigation        from './components/common/header/navigation.module';
 
