@@ -1,63 +1,47 @@
-import angular from 'angular';
-
 import template from './search-results.html';
 
-export default angular
-    .module('app.searchResults', [])
-    .component('searchResults', {
-        controller: class SearchResults {
+export const SearchResultsComponent = {
+    template,
+    controller: class SearchResults {
 
-            constructor($http, $stateParams) {
-                'ngInject';
+        constructor($http, $stateParams) {
+            'ngInject';
 
-                // Dependencies
-                this.$http  = $http;
+            // Dependencies
+            this.$http  = $http;
 
-                // Defaults
-                this.foundGems = {};
+            // Defaults
+            this.foundGems = {};
 
-                var { hash, query } = $stateParams;
-                this.queryTarget = query;
+            var { hash, query } = $stateParams;
+            this.queryTarget = query;
 
-                // This should go in a Service or a Factory
-                this.$http.get(`https://rubygems.org/api/v1/search.json?&query=${query}`).then((response) => {
-                    // map through all the favorites and if it has a localStorage entry add a favorite key
-                    this.foundGems = response.data.map(function(gem, idx) {
-                        var name = gem.name;
-                        if (localStorage.getItem(name)) {
-                            gem.favorite = true;
+            // This should go in a Service or a Factory
+            this.$http.get(`https://rubygems.org/api/v1/search.json?&query=${query}`).then((response) => {
+                // map through all the favorites and if it has a localStorage entry add a favorite key
+                this.foundGems = response.data.map(function(gem, idx) {
+                    var name = gem.name;
+                    if (localStorage.getItem(name)) {
+                        gem.favorite = true;
 
-                        }
+                    }
 
-                        return gem;
-                    });
+                    return gem;
                 });
+            });
+        }
+
+        toggleFavorite(gem, ev) {
+            var target = ev.currentTarget;
+
+            if (angular.element(target).hasClass('active')) {
+                angular.element(target).removeClass('active');
+                localStorage.removeItem(gem.name);
+            } else {
+                angular.element(target).addClass('active');
+                localStorage.setItem(gem.name, JSON.stringify(gem));
             }
+        }
 
-            toggleFavorite(gem, ev) {
-                var target = ev.currentTarget;
-
-                if (angular.element(target).hasClass('active')) {
-                    angular.element(target).removeClass('active');
-                    localStorage.removeItem(gem.name);
-                } else {
-                    angular.element(target).addClass('active');
-                    localStorage.setItem(gem.name, JSON.stringify(gem));
-                }
-            }
-
-        },
-        template
-    })
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-        'ngInject';
-
-        $stateProvider
-            .state('results', {
-                url       : '/search?query',
-                component : 'searchResults',
-            })
-        $urlRouterProvider.otherwise('/');
-
-        $locationProvider.html5Mode(true);
-    }).name;
+    }
+};

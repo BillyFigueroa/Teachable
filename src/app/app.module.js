@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import './app.css';
 import './components/search/search.css';
 
-import SearchBar         from './components/search/search.component';
+import { SearchModule }  from './components/search/search.module';
 import SearchResults     from './components/search/search-results/search-results.component';
 import SearchResultsItem from './components/search/search-results/search-results-item.component';
 import Favorite          from './components/favorite/favorite.component';
@@ -16,10 +16,8 @@ export default angular
     .module(MODULE_NAME, [
         uiRouter,
         Navigation,
-        SearchBar,
-        SearchResults,
+        SearchModule,
         Favorite,
-        SearchResultsItem,
     ])
     .component(MODULE_NAME, {
         template: `
