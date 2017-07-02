@@ -1,12 +1,18 @@
 export class SearchService {
-    constructor($http) {
+    constructor($http, RUBYGEM_API) {
         'ngInject';
 
-        this.$http = $http;
+        this.$http  = $http;
+        this.gemApi = RUBYGEM_API;
+    }
+
+    getGem(gem) {
+        return this.$http.get(`${this.gemApi}/gems/${gem}.json`)
+            .then(response => response.data);
     }
 
     getGemDependencies(query) {
-        return this.$http.get(`https://rubygems.org/api/v1/search.json?&query=${query}`)
+        return this.$http.get(`${this.gemApi}/search.json?&query=${query}`)
             .then(response => response.data);
     }
 

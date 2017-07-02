@@ -9,6 +9,7 @@ import './search.css';
 
 export const SearchModule = angular
     .module('search', [])
+    .constant('RUBYGEM_API', 'https://rubygems.org/api/v1')
     .component('search', SearchComponent)
     .component('searchResults', SearchResultsComponent)
     .component('searchResultsItem', SearchResultsItemComponent)
@@ -36,6 +37,14 @@ export const SearchModule = angular
             .state('gem', {
                 url       : '/gem/{gem}',
                 component : 'searchResultsItem',
+                resolve: {
+                    gem: function($stateParams, SearchService) {
+                        var { gem } = $stateParams;
+
+                        return SearchService.getGem(gem)
+                            .then(response => response);
+                    }
+                }
             })
         $urlRouterProvider.otherwise('/');
 
