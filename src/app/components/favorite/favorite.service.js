@@ -1,5 +1,5 @@
 export class FavoriteService {
-    constructor($http, RUBYGEM_API) {
+    constructor() {
         'ngInject';
     }
 
