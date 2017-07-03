@@ -9,7 +9,7 @@ import './search.css';
 
 export const SearchModule = angular
     .module('search', [])
-    .constant('RUBYGEM_API', 'https://rubygems.org/api/v1')
+    .constant('RUBYGEM_API', '/api/v1')
     .component('search', SearchComponent)
     .component('searchResults', SearchResultsComponent)
     .component('searchResultsItem', SearchResultsItemComponent)
