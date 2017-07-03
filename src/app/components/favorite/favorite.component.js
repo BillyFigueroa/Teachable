@@ -6,18 +6,15 @@ export const FavoriteComponent = {
     template,
     controller: class Favorite {
 
-        constructor() {
+        constructor(FavoriteService) {
             'ngInject';
 
-            // Defaults
-            this.favorites = [];
-            this.getFavoritesFromLocal();
+            this.FavoriteService = FavoriteService;
         }
 
-        getFavoritesFromLocal() {
-           for (var item in localStorage) {
-                    this.favorites.push(JSON.parse(localStorage[item]));
-            }
+        $onInit() {
+            // Defaults
+            this.favorites = this.FavoriteService.getFavoritesFromLocal();
         }
 
     }
